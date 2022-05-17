@@ -30,8 +30,8 @@ def paths_to_duplicated_filenames(path, excluded_exts=[], aliased_exts=[[]]):
 		for name in filenames:
 			# key will be lowercased filename with aliased extention
 			key = name.lower()
+			split = os.path.splitext(key)
 			for exts in aliased_exts:
-				split = os.path.splitext(key)
 				if split[1] in exts: # if ext is listed as an alias
 					key = split[0] + exts[0] # use first alias
 			if key in d.keys(): # append to existing list of paths
